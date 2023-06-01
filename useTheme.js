@@ -1,4 +1,4 @@
-import { useColorScheme } from "react-native";
+import { StyleSheet, useColorScheme } from "react-native";
 
 const couleurCommune = {
   primary: "#669999",
@@ -20,6 +20,18 @@ const Colors = {
   },
 };
 
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.background,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    color: Colors.textColor,
+  },
+});
+
 export default useTheme = () => {
-  return Colors[useColorScheme()];
+  return { ...styles, ...Colors[useColorScheme()] };
 };
